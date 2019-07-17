@@ -16,6 +16,7 @@ public class House extends BaseEntity {
     private Integer numberOfBathrooms;
     @Column(name = "number_of_bedrooms")
     private Integer numberOfBedrooms;
+    @Column(name="describe_house")
     private String describe;
     @Column(name = "price_by_night")
     private String priceByNight;
