@@ -1,4 +1,4 @@
-package codegym.airbnb.configure.config;
+package codegym.airbnb.web.security;
 
 
 import codegym.airbnb.services.service.impl.UserDetailServiceImpl;
