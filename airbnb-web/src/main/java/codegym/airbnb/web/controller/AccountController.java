@@ -16,12 +16,12 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*",allowedHeaders = "*")
-@RequestMapping("/accounts")
+@RequestMapping("")
 public class AccountController {
     @Autowired
     private AccountService accountService;
 
-    @PostMapping("")
+    @PostMapping("/register")
     public ResponseEntity<?> createAccounts(@Valid @RequestBody AccountDTO accountDTO, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity<List>(bindingResult.getAllErrors(), HttpStatus.OK);
@@ -29,11 +29,12 @@ public class AccountController {
         accountService.save(accountDTO);
         return ResponseEntity.ok(accountDTO);
     }
-    @PutMapping("/update-password/{id}")
+
+    @PutMapping("/accounts/update-password/{id}")
     public ResponseEntity<?> updatePassword(@PathVariable(value = "id") Integer accountId,
                                             @RequestBody UpdatePassword updatePassword) throws ResourceNotFoundException {
+
         AccountDTO accountDTO = accountService.findById(accountId);
-//        ResponseEntity responseEntity=new
         if (accountDTO != null) {
             if (updatePassword.getCurrentPassword().equals(accountDTO.getPassword())) {
                 accountDTO.setPassword(updatePassword.getNewPassword());
