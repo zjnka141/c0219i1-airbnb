@@ -9,9 +9,10 @@ import java.util.List;
 public interface AccountService {
     List<Account> findAllByDeletedIsFalse();
 
-    void save(AccountDTO acoountDTO);
+    void save(AccountDTO accountDTO);
 
     AccountDTO updatePassword(AccountDTO accountDTO);
 
     AccountDTO findById(Integer id);
+    void updateUser(AccountDTO accountDTO);
 }
