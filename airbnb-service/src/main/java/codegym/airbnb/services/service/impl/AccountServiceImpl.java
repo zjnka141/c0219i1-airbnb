@@ -52,7 +52,6 @@ public class AccountServiceImpl implements AccountService {
         Account account = accountRepository.findById(id).orElse(null);
         if(account != null){
             AccountDTO accountDTO = new AccountDTO();
-
             accountDTO.setId(account.getId());
             accountDTO.setAddress(account.getAddress());
             accountDTO.setAge(account.getAge());
