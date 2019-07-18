@@ -8,5 +8,12 @@ import java.util.List;
 
 public interface HouseService {
     List<House> findAllByDeletedIsFalse();
+
     void save(HouseDTO houseDTO);
+
+    HouseDTO getHouseById(int id);
+
+    List<HouseDTO> getHouseList();
+
+    void updateStatusOfHouse(int id);
 }

@@ -10,4 +10,6 @@ import java.util.List;
 public interface HouseRepository extends JpaRepository<House,Integer> {
     List<House> findAllByDeletedIsFalse();
 
+    House findAllByDeletedIsFalseAndIdIs(int id);
+
 }
