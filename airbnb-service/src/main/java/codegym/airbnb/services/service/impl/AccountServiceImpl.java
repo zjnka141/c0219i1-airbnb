@@ -65,4 +65,22 @@ public class AccountServiceImpl implements AccountService {
         }
         return null;
     }
+
+    @Override
+    public void updateUser(AccountDTO accountDTO) {
+        Account account = accountRepository.findById(accountDTO.getId()).orElse(null);
+
+        account.setAddress(accountDTO.getAddress());
+        account.setAge(accountDTO.getAge());
+        account.setEmail(accountDTO.getEmail());
+        account.setFullName(accountDTO.getFullName());
+        account.setGender(accountDTO.getGender());
+        account.setPhone(accountDTO.getPhone());
+        account.setPassword(accountDTO.getPassword());
+        account.setUsername(accountDTO.getUsername());
+        account.setDeleted(Boolean.FALSE);
+        accountRepository.save(account);
+
+    }
 }
+

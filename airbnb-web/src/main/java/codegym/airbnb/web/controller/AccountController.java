@@ -2,6 +2,7 @@ package codegym.airbnb.web.controller;
 
 import codegym.airbnb.common.exception.ResourceNotFoundException;
 import codegym.airbnb.dao.dto.AccountDTO;
+import codegym.airbnb.dao.entity.Account;
 import codegym.airbnb.dao.entity.UpdatePassword;
 import codegym.airbnb.services.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,4 +47,16 @@ public class AccountController {
         }
         return new ResponseEntity<>("{\"text\":\"NotFound\"}", HttpStatus.OK);
     }
+    @PutMapping("update-user/{id}")
+    public ResponseEntity<AccountDTO> updateAccount(@PathVariable(value = "id") Integer id,@RequestBody AccountDTO accountDTO){
+        accountService.updateUser(accountDTO);
+        return ResponseEntity.ok(accountDTO);
+    }
+
+    @GetMapping("/show/{id}")
+    public ResponseEntity<AccountDTO> getAccountById(@PathVariable(value = "id") Integer id) {
+        AccountDTO accountDTO = accountService.findById(id);
+        return ResponseEntity.ok().body(accountDTO);
+    }
+
 }
