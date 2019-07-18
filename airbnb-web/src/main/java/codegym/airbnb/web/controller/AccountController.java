@@ -15,12 +15,12 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*",allowedHeaders = "*")
-@RequestMapping("/accounts")
+@RequestMapping("")
 public class AccountController {
     @Autowired
     private AccountService accountService;
 
-    @PostMapping("")
+    @PostMapping("/register")
     public ResponseEntity<?> createAccounts(@Valid @RequestBody AccountDTO accountDTO, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity<List>(bindingResult.getAllErrors(), HttpStatus.OK);
@@ -28,7 +28,7 @@ public class AccountController {
         accountService.save(accountDTO);
         return ResponseEntity.ok(accountDTO);
     }
-    @PutMapping("/update-password/{id}")
+    @PutMapping("/accounts/update-password/{id}")
     public ResponseEntity<AccountDTO> updatePassword(@PathVariable(value = "id") Integer accountId,
                                                      @Valid @RequestBody AccountDTO accountDetails) throws ResourceNotFoundException {
         AccountDTO accountDTO = accountService.findById(accountId);
