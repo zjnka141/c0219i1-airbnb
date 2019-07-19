@@ -25,7 +25,7 @@ public class AccountController {
     @PostMapping("/register")
     public ResponseEntity<?> createAccounts(@Valid @RequestBody AccountDTO accountDTO, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return new ResponseEntity<List>(bindingResult.getAllErrors(), HttpStatus.OK);
+            return new ResponseEntity<List>(bindingResult.getAllErrors(), HttpStatus.BAD_REQUEST);
         }
         accountService.save(accountDTO);
         return ResponseEntity.ok(accountDTO);
