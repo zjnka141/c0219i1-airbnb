@@ -11,6 +11,7 @@ public class AccountDTO implements Serializable {
     private Integer age;
     private String gender;
     private String phone;
+    @Unique(message = "Email is already exit")
     private String email;
     private String address;
     @Unique(message = "username is already exit")

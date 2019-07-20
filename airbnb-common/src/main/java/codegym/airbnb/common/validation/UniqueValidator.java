@@ -13,7 +13,7 @@ public class UniqueValidator implements ConstraintValidator<Unique,String> {
 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext constraintValidatorContext) {
-        return accountRepository.countByUsername(value)<=0;
+        return accountRepository.countByUsernameOrEmail(value,value)<=0;
     }
 
     @Override
