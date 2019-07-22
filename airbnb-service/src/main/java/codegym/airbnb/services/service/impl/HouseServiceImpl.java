@@ -21,6 +21,7 @@ public class HouseServiceImpl implements HouseService {
         return houseRepository.findAllByDeletedIsFalse();
     }
 
+    // fix
     @Override
     public void save(HouseDTO houseDTO) {
         House house = new House();
