@@ -33,7 +33,7 @@ public class HouseServiceImpl implements HouseService {
         house.setNumberOfBedrooms(houseDTO.getNumberOfBedrooms());
         house.setTypeHouse(houseDTO.getTypeHouse());
         house.setPriceByNight(houseDTO.getPriceByNight());
-        house.setTypeRoom(houseDTO.getPriceByNight());
+        house.setTypeRoom(houseDTO.getTypeRoom());
         house.setArea(houseDTO.getArea());
         house.setPriceByMonth(houseDTO.getPriceByMonth());
 //        house.setAccount(houseDTO.getAccount());
