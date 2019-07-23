@@ -6,6 +6,8 @@ import codegym.airbnb.dao.entity.House;
 import codegym.airbnb.dao.repository.HouseRepository;
 import codegym.airbnb.services.service.HouseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -78,6 +80,11 @@ public class HouseServiceImpl implements HouseService {
             houseDTOS.add(houseDTO);
         }
         return houseDTOS;
+    }
+
+    @Override
+    public Page<House> getHouses(Pageable pageable) {
+        return houseRepository.findAllByDeletedIsFalse(pageable);
     }
 
     @Override

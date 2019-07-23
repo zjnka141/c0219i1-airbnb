@@ -2,8 +2,12 @@ package codegym.airbnb.web.controller;
 
 
 import codegym.airbnb.dao.dto.HouseDTO;
+import codegym.airbnb.dao.entity.House;
 import codegym.airbnb.services.service.HouseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,6 +36,11 @@ public class HouseController {
     public List<HouseDTO> listHouse() {
         List<HouseDTO> houseDTOS = houseService.getHouseList();
         return houseDTOS;
+    }
+    @GetMapping(value = "", params = {"page", "size"})
+    public Page<House> listHouse(@RequestParam("page") int page, @RequestParam("size") int size) {
+        Page<House> houses = houseService.getHouses(PageRequest.of(page,size));
+        return houses;
     }
 
     @PutMapping("updateStatus/{id}")
