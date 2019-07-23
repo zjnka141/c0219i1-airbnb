@@ -48,16 +48,25 @@ public class AccountController {
         }
         return new ResponseEntity<>("{\"text\":\"NotFound\"}", HttpStatus.OK);
     }
-    @PutMapping("update-user/{id}")
-    public ResponseEntity<AccountDTO> updateAccount(@PathVariable(value = "id") Integer id,@RequestBody AccountDTO accountDTO){
+    @PutMapping("/accounts/update-user/{id}")
+    public ResponseEntity<AccountDTO> updateAccount(@PathVariable(value = "id") Integer id ,@RequestBody AccountDTO accountDTO){
         accountService.updateUser(accountDTO);
         return ResponseEntity.ok(accountDTO);
     }
 
-    @GetMapping("/show/{id}")
+    @GetMapping("/accounts/show/{id}")
     public ResponseEntity<AccountDTO> getAccountById(@PathVariable(value = "id") Integer id) {
         AccountDTO accountDTO = accountService.findById(id);
         return ResponseEntity.ok().body(accountDTO);
     }
+    @GetMapping("/accounts")
+    public List<Account> getAllAccount() {
+        List<Account> accounts;
+
+        accounts = accountService.findAllByDeletedIsFalse();
+
+        return accounts;
+    }
+
 
 }
