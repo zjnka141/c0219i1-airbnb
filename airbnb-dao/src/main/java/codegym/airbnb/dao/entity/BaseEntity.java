@@ -1,33 +1,38 @@
 package codegym.airbnb.dao.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import javax.persistence.Column;
-import javax.persistence.EntityListeners;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.Version;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
+@JsonIgnoreProperties(
+        value = {"created_date", "last_updated_date", "created_by", "last_updated_by"},
+        allowGetters = true
+)
 public class BaseEntity implements Serializable {
 
     @Version
     private long version = 1L;
 
+    @Temporal(TemporalType.TIMESTAMP)
     @CreatedDate
     @Column(name = "created_date")
-    private transient  LocalDateTime createdDate;
+    private Date createdDate;
 
+    @Temporal(TemporalType.TIMESTAMP)
     @LastModifiedDate
     @Column(name = "last_updated_date")
-    private transient LocalDateTime lastUpdateDate;
+    private Date lastUpdateDate;
 
     @CreatedBy
     @Column(name = "created_by")
@@ -45,19 +50,19 @@ public class BaseEntity implements Serializable {
         this.version = version;
     }
 
-    public LocalDateTime getCreatedDate() {
+    public Date getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(LocalDateTime createdDate) {
+    public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
     }
 
-    public LocalDateTime getLastUpdateDate() {
+    public Date getLastUpdateDate() {
         return lastUpdateDate;
     }
 
-    public void setLastUpdateDate(LocalDateTime lastUpdateDate) {
+    public void setLastUpdateDate(Date lastUpdateDate) {
         this.lastUpdateDate = lastUpdateDate;
     }
 

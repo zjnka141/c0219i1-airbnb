@@ -1,10 +1,11 @@
 package codegym.airbnb.dao.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "houses")
-public class House extends BaseEntity {
+public class House extends BaseEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
