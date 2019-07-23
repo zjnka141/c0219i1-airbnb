@@ -42,7 +42,8 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public AccountDTO updatePassword(AccountDTO accountDTO) {
         Account account = accountRepository.findById(accountDTO.getId()).orElse(null);
-        account.setPassword(accountDTO.getPassword());
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(12);
+        account.setPassword(passwordEncoder.encode(accountDTO.getPassword()));
         accountRepository.save(account);
         return accountDTO;
     }

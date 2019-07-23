@@ -81,14 +81,10 @@ public class HouseServiceImpl implements HouseService {
     }
 
     @Override
-    public void updateStatusOfHouse(int id) {
+    public void updateStatusOfHouse(int id,String status) {
         House house = houseRepository.findAllByDeletedIsFalseAndIdIs(id);
         if(house!=null) {
-            if(house.getStatus().equals("đã thuê")) {
-                house.setStatus("đang thuê");
-            } else {
-                house.setStatus("đã thuê");
-            }
+           house.setStatus(status);
         }
         houseRepository.save(house);
     }

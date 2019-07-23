@@ -15,5 +15,5 @@ public interface HouseService {
 
     List<HouseDTO> getHouseList();
 
-    void updateStatusOfHouse(int id);
+    void updateStatusOfHouse(int id, String status);
 }

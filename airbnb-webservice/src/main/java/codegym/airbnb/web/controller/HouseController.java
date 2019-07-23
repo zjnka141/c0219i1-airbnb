@@ -35,8 +35,8 @@ public class HouseController {
     }
 
     @PutMapping("updateStatus/{id}")
-    public ResponseEntity<?> updateStatusOfHouse(@PathVariable("id")Integer id) {
-        houseService.updateStatusOfHouse(id);
+    public ResponseEntity<?> updateStatusOfHouse(@PathVariable("id")Integer id, @RequestBody String status) {
+        houseService.updateStatusOfHouse(id, status);
         HouseDTO houseDTO =houseService.getHouseById(id);
         return ResponseEntity.ok(houseDTO);
     }
