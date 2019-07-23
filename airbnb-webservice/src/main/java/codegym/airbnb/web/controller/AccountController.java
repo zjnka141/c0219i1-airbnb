@@ -8,6 +8,7 @@ import codegym.airbnb.services.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,7 +38,7 @@ public class AccountController {
 
         AccountDTO accountDTO = accountService.findById(accountId);
         if (accountDTO != null) {
-            if (updatePassword.getCurrentPassword().equals(accountDTO.getPassword())) {
+            if (BCrypt.checkpw(updatePassword.getCurrentPassword(), accountDTO.getPassword())) {
                 accountDTO.setPassword(updatePassword.getNewPassword());
                 accountService.updatePassword(accountDTO);
                 return new ResponseEntity<>("{\"text\":\"Successful\"}",HttpStatus.OK);
