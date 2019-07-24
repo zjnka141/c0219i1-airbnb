@@ -71,6 +71,7 @@ public class AccountServiceImpl implements AccountService {
     public void updateUser(AccountDTO accountDTO) {
         Account account = accountRepository.findById(accountDTO.getId()).orElse(null);
 
+        account.setId(accountDTO.getId());
         account.setAddress(accountDTO.getAddress());
         account.setAge(accountDTO.getAge());
         account.setEmail(accountDTO.getEmail());
