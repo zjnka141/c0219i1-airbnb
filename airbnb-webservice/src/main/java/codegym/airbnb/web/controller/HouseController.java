@@ -2,6 +2,8 @@ package codegym.airbnb.web.controller;
 
 
 import codegym.airbnb.dao.dto.HouseDTO;
+import codegym.airbnb.dao.entity.House;
+import codegym.airbnb.dao.repository.HouseRepository;
 import codegym.airbnb.services.service.HouseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,9 @@ import java.util.List;
 public class HouseController {
     @Autowired
     private HouseService houseService;
+
+    @Autowired
+    private HouseRepository houseRepository;
     @PostMapping("")
     public ResponseEntity<HouseDTO> createHouse(@RequestBody HouseDTO houseDTO) {
         houseService.save(houseDTO);
@@ -41,4 +46,8 @@ public class HouseController {
         return ResponseEntity.ok(houseDTO);
     }
 
+ @GetMapping("")
+public List<House> getAllHouses(){
+        return houseRepository.findAll();
+ }
 }

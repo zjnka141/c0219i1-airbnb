@@ -6,7 +6,7 @@
     <modules>
         <module>airbnb-service</module>
         <module>airbnb-dao</module>
-        <module>airbnb-web</module>
+        <module>airbnb-webservice</module>
         <module>airbnb-common</module>
         <module>airbnb-configure</module>
     </modules>
