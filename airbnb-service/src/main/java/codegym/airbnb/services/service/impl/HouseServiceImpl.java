@@ -83,8 +83,9 @@ public class HouseServiceImpl implements HouseService {
     }
 
     @Override
-    public Page<House> getHouses(Pageable pageable) {
-        return houseRepository.findAllByDeletedIsFalse(pageable);
+    public Page<House> getHouses(Pageable pageable,String name, int min, int max, List<Integer> numBed, List<String> typeBed) {
+//        return houseRepository.findAllByDeletedIsFalseAndNameContainingIgnoreCase(pageable, name);
+        return houseRepository.findAll(name,min, max, numBed, typeBed, pageable);
     }
 
     @Override

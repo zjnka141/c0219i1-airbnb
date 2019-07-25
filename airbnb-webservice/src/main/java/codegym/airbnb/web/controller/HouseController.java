@@ -37,9 +37,19 @@ public class HouseController {
         List<HouseDTO> houseDTOS = houseService.getHouseList();
         return houseDTOS;
     }
-    @GetMapping(value = "", params = {"page", "size"})
-    public Page<House> listHouse(@RequestParam("page") int page, @RequestParam("size") int size) {
-        Page<House> houses = houseService.getHouses(PageRequest.of(page,size));
+    @GetMapping(value = "", params = {"page", "size","search","numBed","typeBed"})
+    public Page<House> listHouse(@RequestParam("page") int page,
+                                 @RequestParam("size") int size,
+                                 @RequestParam("search") String name,
+                                 @RequestParam("min") int min,
+                                 @RequestParam("max") int max,
+                                 @RequestParam("numBed") List<Integer> numBed,
+                                 @RequestParam("typeBed") List<String> typeBed
+                                 ) {
+        System.out.println(numBed);
+        System.out.println(typeBed);
+
+        Page<House> houses = houseService.getHouses(PageRequest.of(page,size),name, min, max, numBed, typeBed);
         return houses;
     }
 
