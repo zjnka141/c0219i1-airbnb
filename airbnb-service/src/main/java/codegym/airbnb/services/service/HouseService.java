@@ -17,7 +17,7 @@ public interface HouseService {
 
     List<HouseDTO> getHouseList();
 
-    Page<House> getHouses(Pageable pageable);
+    Page<House> getHouses(Pageable pageable, String name, int min, int max,List<Integer> numBed, List<String> typeBed);
 
     void updateStatusOfHouse(int id, String status);
 }
