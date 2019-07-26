@@ -16,6 +16,7 @@
         <version>2.1.6.RELEASE</version>
         <relativePath/> <!-- lookup parent from dao -->
     </parent>
+
     <groupId>com.codegym</groupId>
     <artifactId>airbnb</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -31,6 +32,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
