@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/customers")
+@RequestMapping("/customers")
 @CrossOrigin(origins = "http://localhost:4200",allowedHeaders="*")
 
 public class CustomerController {
