@@ -15,13 +15,15 @@ public class BookingServiceImpl implements BookingService {
     @Override
     public void save(BookingDTO bookingDTO) {
         Booking booking = new Booking();
-        booking.setAge(bookingDTO.getAge());
+        booking.setBirthday(bookingDTO.getBirthday());
         booking.setCheckIn(bookingDTO.getCheckIn());
         booking.setCheckOut(bookingDTO.getCheckOut());
         booking.setFullName(bookingDTO.getFullName());
         booking.setGender(bookingDTO.getGender());
         booking.setPhone(bookingDTO.getPhone());
         booking.setRelationship(bookingDTO.getRelationship());
+        booking.setAmount(bookingDTO.getAmount());
+        booking.setDesciptionBookingHouse(bookingDTO.getDesciptionBookingHouse());
         booking.setDeleted(Boolean.FALSE);
 
         bookingRepository.save(booking);

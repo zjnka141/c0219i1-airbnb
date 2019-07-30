@@ -6,12 +6,31 @@ import java.time.LocalDate;
 public class BookingDTO implements Serializable {
     private Integer id;
     private String fullName;
-    private Integer age;
+    private LocalDate birthday;
     private String relationship;
     private String gender;
     private String phone;
     private LocalDate checkIn;
     private LocalDate checkOut;
+    private String desciptionBookingHouse;
+    private Integer amount;
+
+    public String getDesciptionBookingHouse() {
+        return desciptionBookingHouse;
+    }
+
+    public void setDesciptionBookingHouse(String desciptionBookingHouse) {
+        this.desciptionBookingHouse = desciptionBookingHouse;
+    }
+
+    public Integer getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Integer amount) {
+        this.amount = amount;
+    }
+
     private Boolean deleted;
 
     public Integer getId() {
@@ -30,12 +49,12 @@ public class BookingDTO implements Serializable {
         this.fullName = fullName;
     }
 
-    public Integer getAge() {
-        return age;
+    public LocalDate getBirthday() {
+        return birthday;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
     }
 
     public String getRelationship() {
