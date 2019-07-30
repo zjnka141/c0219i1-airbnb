@@ -1,7 +1,6 @@
 package codegym.airbnb.dao.entity;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
@@ -11,12 +10,31 @@ public class Booking extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String fullName;
-    private Integer age;
+    private LocalDate birthday;
     private String relationship;
     private String gender;
     private String phone;
     private LocalDate checkIn;
     private LocalDate checkOut;
+    private Integer amount;
+
+    public Integer getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Integer amount) {
+        this.amount = amount;
+    }
+
+    public String getDesciptionBookingHouse() {
+        return desciptionBookingHouse;
+    }
+
+    public void setDesciptionBookingHouse(String desciptionBookingHouse) {
+        this.desciptionBookingHouse = desciptionBookingHouse;
+    }
+
+    private String desciptionBookingHouse;
     private Boolean deleted;
 
     public Integer getId() {
@@ -35,12 +53,12 @@ public class Booking extends BaseEntity {
         this.fullName = fullName;
     }
 
-    public Integer getAge() {
-        return age;
+    public LocalDate getBirthday() {
+        return birthday;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
     }
 
     public String getRelationship() {
