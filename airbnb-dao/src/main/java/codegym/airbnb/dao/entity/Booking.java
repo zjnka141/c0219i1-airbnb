@@ -17,6 +17,8 @@ public class Booking extends BaseEntity {
     private LocalDate checkIn;
     private LocalDate checkOut;
     private Integer amount;
+    private String descriptionBookingHouse;
+    private Boolean deleted;
 
     public Integer getAmount() {
         return amount;
@@ -26,16 +28,15 @@ public class Booking extends BaseEntity {
         this.amount = amount;
     }
 
-    public String getDesciptionBookingHouse() {
-        return desciptionBookingHouse;
+    public String getDescriptionBookingHouse() {
+        return descriptionBookingHouse;
     }
 
-    public void setDesciptionBookingHouse(String desciptionBookingHouse) {
-        this.desciptionBookingHouse = desciptionBookingHouse;
+    public void setDescriptionBookingHouse(String descriptionBookingHouse) {
+        this.descriptionBookingHouse = descriptionBookingHouse;
     }
 
-    private String desciptionBookingHouse;
-    private Boolean deleted;
+
 
     public Integer getId() {
         return id;

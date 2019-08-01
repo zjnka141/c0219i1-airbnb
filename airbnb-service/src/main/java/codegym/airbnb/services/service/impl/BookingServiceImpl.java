@@ -23,7 +23,7 @@ public class BookingServiceImpl implements BookingService {
         booking.setPhone(bookingDTO.getPhone());
         booking.setRelationship(bookingDTO.getRelationship());
         booking.setAmount(bookingDTO.getAmount());
-        booking.setDesciptionBookingHouse(bookingDTO.getDesciptionBookingHouse());
+        booking.setDescriptionBookingHouse(bookingDTO.getDescriptionBookingHouse());
         booking.setDeleted(Boolean.FALSE);
 
         bookingRepository.save(booking);

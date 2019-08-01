@@ -12,15 +12,15 @@ public class BookingDTO implements Serializable {
     private String phone;
     private LocalDate checkIn;
     private LocalDate checkOut;
-    private String desciptionBookingHouse;
+    private String descriptionBookingHouse;
     private Integer amount;
 
-    public String getDesciptionBookingHouse() {
-        return desciptionBookingHouse;
+    public String getDescriptionBookingHouse() {
+        return descriptionBookingHouse;
     }
 
-    public void setDesciptionBookingHouse(String desciptionBookingHouse) {
-        this.desciptionBookingHouse = desciptionBookingHouse;
+    public void setDescriptionBookingHouse(String descriptionBookingHouse) {
+        this.descriptionBookingHouse = descriptionBookingHouse;
     }
 
     public Integer getAmount() {
